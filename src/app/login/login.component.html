@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="container">
+    <mat-card class="loginCard">
+        <div class="logo">
+            Logo comes here...
+        </div>
+        <form [formGroup]="loginForm">
+            <mat-form-field class="marginRight">
+                <input type="text" matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+            <br>
+            <mat-form-field class="marginRight">
+                <input type="password" matInput placeholder="Password" formControlName="password" />
+            </mat-form-field>
+        </form>
+
+        <div>
+            <button mat-button color="accent">Login</button>
+        </div>
+    </mat-card>
+</div>
