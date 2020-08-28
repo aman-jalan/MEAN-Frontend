@@ -50,6 +50,9 @@ export class UserManagerComponent implements OnInit {
   constructor(private snackbar: MatSnackBar, private dialog: MatDialog, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.userService.fetchUsers().then((result: [UsersElement]) => {
+      this.users.data = result
+    });
     this.users.sort = this.sort;
     this.users.paginator = this.paginator;
   }
@@ -70,7 +73,8 @@ export class UserManagerComponent implements OnInit {
 
   openUserDialog(mode, user) {
     this.dialog.open(UserFormDialogComponent, {
-      data: { user, mode }
+      data: { user, mode },
+      width: '400px'
     }).afterClosed().subscribe((result) => {
       if (result) {
         this.ngOnInit();
