@@ -10,23 +10,23 @@
         </mat-form-field>
         <br>
         <mat-form-field class="marginRight">
-            <input type="text" matInput placeholder="Password" formControlName="firstName" />
+            <input type="text" matInput placeholder="First Name" formControlName="firstName" />
         </mat-form-field>
         <br>
         <mat-form-field class="marginRight">
-            <input type="text" matInput placeholder="Password" formControlName="lastName" />
+            <input type="text" matInput placeholder="Last Name" formControlName="lastName" />
         </mat-form-field>
         <br>
         <mat-form-field class="marginRight">
-            <input type="text" matInput placeholder="Password" formControlName="age" />
+            <input type="text" matInput placeholder="Age" formControlName="age" />
         </mat-form-field>
         <br>
         <mat-form-field class="marginRight">
-            <input type="text" matInput placeholder="Password" formControlName="hobbies" />
+            <input type="text" matInput placeholder="Hibbies" formControlName="hobbies" />
         </mat-form-field>
     </form>
     <div>
         <button mat-button color="primary" (click)="submit()">{{data.mode}}</button>
-        <button mat-button color="warn">Cancel</button>
+        <button mat-button color="warn" [mat-dialog-close]="true">Cancel</button>
     </div>
 </div>

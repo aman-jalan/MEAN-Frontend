@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserService {
 
   fetchUsers() {
     return new Promise((resolve, reject) => {
-      this.http.get('/users', { headers: { authorization: 'token' } }).subscribe((response) => {
+      this.http.get(`${environment.url}/users`, { headers: { authorization: 'token' } }).subscribe((response) => {
         resolve(response);
       },
         (error) => {
@@ -22,7 +23,7 @@ export class UserService {
 
   addUser(userDetails) {
     return new Promise((resolve, reject) => {
-      this.http.post('/users', userDetails, { headers: { authorization: 'token' } }).subscribe((response) => {
+      this.http.post(`${environment.url}/users`, userDetails, { headers: { authorization: 'token' } }).subscribe((response) => {
         resolve('User added successfully!');
       },
         (error) => {
@@ -33,7 +34,7 @@ export class UserService {
 
   updateUser(userDetails) {
     return new Promise((resolve, reject) => {
-      this.http.put('/user', userDetails, { headers: { authorization: 'token' } }).subscribe((response) => {
+      this.http.put(`${environment.url}/user`, userDetails, { headers: { authorization: 'token' } }).subscribe((response) => {
         resolve('User updated successfully!');
       },
         (error) => {
@@ -44,7 +45,7 @@ export class UserService {
 
   deleteUser(userId) {
     return new Promise((resolve, reject) => {
-      this.http.delete(`/user/:${userId}`, { headers: { authorization: 'token' } }).subscribe((response) => {
+      this.http.delete(`${environment.url}/user/:${userId}`, { headers: { authorization: 'token' } }).subscribe((response) => {
         resolve('User deleted successfully!');
       },
         (error) => {
