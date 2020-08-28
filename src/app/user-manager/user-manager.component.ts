@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserService } from './user.service';
 import { UserFormDialogComponent } from '../components/user-form-dialog/user-form-dialog.component';
 import { Router } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 export interface UsersElement {
   _id: string,
@@ -47,7 +48,7 @@ export class UserManagerComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private snackbar: MatSnackBar, private dialog: MatDialog, private userService: UserService, private router: Router) { }
+  constructor(private snackbar: MatSnackBar, private dialog: MatDialog, private userService: UserService, private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
     this.userService.fetchUsers().then((result: [UsersElement]) => {
@@ -83,6 +84,6 @@ export class UserManagerComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigateByUrl('/login');
+    this.loginService.logout();
   }
 }
