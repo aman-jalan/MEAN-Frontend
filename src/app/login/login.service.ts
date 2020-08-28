@@ -11,9 +11,9 @@ export class LoginService {
 
   constructor(private http: HttpClient, private snackbar: MatSnackBar, public route: Router) { }
 
-  login(username, password) {
+  login(user) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${environment.url}/login`, { username, password }, { responseType: 'json' }).subscribe((response: any) => {
+      this.http.post(`${environment.url}/login`, { email: user.email, password: user.password }, { responseType: 'json' }).subscribe((response: any) => {
         localStorage.setItem("authToken", response.token);
         resolve(true);
       }, (error) => {
