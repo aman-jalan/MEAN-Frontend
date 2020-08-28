@@ -1,0 +1,32 @@
+<div class="container">
+    <h3> {{data.mode}} User</h3>
+    <form [formGroup]="userForm">
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Email" formControlName="email" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Password" formControlName="password" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Password" formControlName="firstName" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Password" formControlName="lastName" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Password" formControlName="age" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="marginRight">
+            <input type="text" matInput placeholder="Password" formControlName="hobbies" />
+        </mat-form-field>
+    </form>
+    <div>
+        <button mat-button color="primary" (click)="submit()">{{data.mode}}</button>
+        <button mat-button color="warn">Cancel</button>
+    </div>
+</div>

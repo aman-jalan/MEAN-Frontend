@@ -1,0 +1,41 @@
+.content {
+  padding: 2em 0em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1.5em 0;
+  /* justify-content: space-evenly; */
+  /* background-color: lightblue; */
+  /* width: 90%; */
+}
+
+.toolbar {
+  flex: 1 1 auto;
+}
+
+.userTableCard {
+  margin: 0 auto;
+  width: 60%;
+}
+
+table {
+  /* margin: 1em; */
+  width: 100%;
+}
+
+.addButton {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  z-index: 100;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.icon {
+  vertical-align: middle;
+}
