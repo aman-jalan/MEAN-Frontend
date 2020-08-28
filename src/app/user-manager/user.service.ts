@@ -24,7 +24,10 @@ export class UserService {
   addUser(userDetails) {
     return new Promise((resolve, reject) => {
       this.http.post(`${environment.url}/users`, userDetails, { headers: { authorization: localStorage.getItem('authToken') }, responseType: 'json' }).subscribe((response) => {
-        resolve('User added successfully!');
+        resolve(true);
+        this.snackbar.open('User added!', null, {
+          duration: 2000
+        });
       },
         (error) => {
           reject('Failed to add user');
@@ -34,8 +37,11 @@ export class UserService {
 
   updateUser(userDetails) {
     return new Promise((resolve, reject) => {
-      this.http.put(`${environment.url}/user`, userDetails, { headers: { authorization: localStorage.getItem('authToken') }, responseType: 'json' }).subscribe((response) => {
-        resolve('User updated successfully!');
+      this.http.put(`${environment.url}/users/${userDetails.email}`, userDetails, { headers: { authorization: localStorage.getItem('authToken') }, responseType: 'json' }).subscribe((response) => {
+        resolve(true);
+        this.snackbar.open('User updated!', null, {
+          duration: 2000
+        });
       },
         (error) => {
           reject('Failed to update user');
@@ -45,7 +51,7 @@ export class UserService {
 
   deleteUser(userId) {
     return new Promise((resolve, reject) => {
-      this.http.delete(`${environment.url}/user/:${userId}`, { headers: { authorization: localStorage.getItem('authToken') }, responseType: 'json' }).subscribe((response) => {
+      this.http.delete(`${environment.url}/users/${userId}`, { headers: { authorization: localStorage.getItem('authToken') }, responseType: 'json' }).subscribe((response) => {
         resolve('User deleted successfully!');
       },
         (error) => {
