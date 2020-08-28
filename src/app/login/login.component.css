@@ -1,0 +1,31 @@
+.container {
+  margin: 12em auto;
+  text-align: center;
+  /* background-color: whitesmoke; */
+}
+
+.loginCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 25%;
+  height: 400px;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 40%;
+  height: 150px;
+  background-color: pink;
+  text-align: center;
+}
+
+.loginForm {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.formInput {
+  width: 90%;
+}
