@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from './user.service';
 import { UserFormDialogComponent } from '../components/user-form-dialog/user-form-dialog.component';
+import { Router } from '@angular/router';
 
 export interface UsersElement {
   _id: string,
@@ -46,7 +47,7 @@ export class UserManagerComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private snackbar: MatSnackBar, private dialog: MatDialog, private userService: UserService) { }
+  constructor(private snackbar: MatSnackBar, private dialog: MatDialog, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.users.sort = this.sort;
@@ -75,5 +76,9 @@ export class UserManagerComponent implements OnInit {
         this.ngOnInit();
       }
     });
+  }
+
+  logout() {
+    this.router.navigateByUrl('/login');
   }
 }
